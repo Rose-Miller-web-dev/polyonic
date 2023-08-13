@@ -12,6 +12,9 @@
   "copyright": "© 2018, Your Name",
   "private": true,
   "main": "electron.js",
+
+
+  
   "scripts": {
     "build:electron": "ng build --base-href ./",
     "build:electron:dev": "npm run build:electron -- -c dev",
