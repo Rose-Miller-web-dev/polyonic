@@ -1,0 +1,141 @@
+{
+   "checksum": "9a2b991f3799a8ea0e7f463f79c605bd",
+   "roots": {
+      "bookmark_bar": {
+         "children": [ {
+            "date_added": "13320125838039021",
+            "guid": "44dda5f2-67e0-4a2b-9c69-4a6c4f4d9090",
+            "id": "5",
+            "meta_info": {
+               "power_bookmark_meta": ""
+            },
+            "name": "Google Calendar",
+            "type": "url",
+            "url": "https://calendar.google.com/calendar/u/0/r?tab=rc&pli=1"
+         }, {
+            "date_added": "13323795381981421",
+            "guid": "6ccca200-06f6-4109-b527-972f730ee85d",
+            "id": "6",
+            "meta_info": {
+               "power_bookmark_meta": ""
+            },
+            "name": "django",
+            "type": "url",
+            "url": "http://127.0.0.1:8000/"
+         }, {
+            "date_added": "13334151156978281",
+            "guid": "9817c2fd-c636-4ba8-8bc5-bd21fab4c324",
+            "id": "7",
+            "name": "Angular",
+            "type": "url",
+            "url": "http://localhost:4200/"
+         }, {
+            "date_added": "13328283625252103",
+            "guid": "29c6b818-9a22-4dc6-9645-55c6a14eb472",
+            "id": "8",
+            "name": "Telegram",
+            "type": "url",
+            "url": "https://web.telegram.org/a/"
+         }, {
+            "date_added": "13322177631058397",
+            "guid": "89850d28-9fcc-4d88-8362-acc73f6d5345",
+            "id": "9",
+            "meta_info": {
+               "power_bookmark_meta": ""
+            },
+            "name": "Rose-Miller-web-dev",
+            "type": "url",
+            "url": "https://github.com/Rose-Miller-web-dev"
+         }, {
+            "date_added": "13329552804373290",
+            "guid": "2fed0f57-ad82-49c0-9452-25b451ff4bfa",
+            "id": "10",
+            "name": "Upwork Login - Log in to your Upwork account",
+            "type": "url",
+            "url": "https://www.upwork.com/ab/account-security/login"
+         }, {
+            "date_added": "13329819778644725",
+            "guid": "66fd4424-7954-4576-a081-1a1116a53e36",
+            "id": "11",
+            "name": "Pinterest",
+            "type": "url",
+            "url": "https://www.pinterest.ca/"
+         }, {
+            "date_added": "13333110446170452",
+            "guid": "4829e675-b9cd-43bb-94c3-4791ac66223b",
+            "id": "12",
+            "name": "InfinityFree",
+            "type": "url",
+            "url": "https://dash.infinityfree.com/sitePros"
+         }, {
+            "date_added": "13334403826882321",
+            "guid": "f492186f-7f28-4bb3-809a-93f9b8a82113",
+            "id": "13",
+            "name": "Problems - LeetCode",
+            "type": "url",
+            "url": "https://leetcode.com/problemset/javascript/"
+         }, {
+            "date_added": "13333259517830330",
+            "guid": "95ab54de-afe4-4dbe-913d-bdd7aaf27eb1",
+            "id": "14",
+            "name": "Clipchamp - free video editor & video maker",
+            "type": "url",
+            "url": "https://app.clipchamp.com/"
+         }, {
+            "date_added": "13333301564411753",
+            "guid": "bb1cb786-4dba-4774-9367-dfee8a32fc78",
+            "id": "15",
+            "name": "My Drive - Google Drive",
+            "type": "url",
+            "url": "https://drive.google.com/drive/my-drive"
+         }, {
+            "date_added": "13335378700107759",
+            "guid": "8c739d80-2973-4e88-8d80-c1eb14d8ce71",
+            "id": "16",
+            "name": "JavaScript String Search",
+            "type": "url",
+            "url": "https://www.w3schools.com/js/js_string_search.asp"
+         }, {
+            "date_added": "13336084098170759",
+            "guid": "4abde030-c4d6-4f35-9aba-48fbf27cf208",
+            "id": "17",
+            "name": "Angular Update Guide",
+            "type": "url",
+            "url": "https://update.angular.io/?v=11.0-12.0"
+         }, {
+            "date_added": "13336084106664639",
+            "guid": "c3fb0ad7-2656-4267-a83b-5b954025c139",
+            "id": "18",
+            "name": "Upgrading to Ionic 6 | Ionic Documentation",
+            "type": "url",
+            "url": "https://ionicframework.com/docs/v6/intro/upgrading-to-ionic-6"
+         } ],
+         "date_added": "13336303334119265",
+         "date_modified": "13336084106664639",
+         "guid": "00000000-0000-4000-a000-000000000002",
+         "id": "1",
+         "name": "Bookmarks bar",
+         "type": "folder"
+      },
+      "other": {
+         "children": [  ],
+         "date_added": "13336303334119266",
+         "date_modified": "0",
+         "guid": "00000000-0000-4000-a000-000000000003",
+         "id": "2",
+         "name": "Other bookmarks",
+         "type": "folder"
+      },
+      "synced": {
+         "children": [  ],
+         "date_added": "13336303334119267",
+         "date_modified": "0",
+         "guid": "00000000-0000-4000-a000-000000000004",
+         "id": "3",
+         "name": "Mobile bookmarks",
+         "type": "folder"
+      }
+   },
+   "sync_metadata": "CoMCCuIBCIiBAhLbARJSCAISTgoGCgJibRABEDMaEgkAJnvNtQIGACEAJnvNtQIGACIUCRm7BNW1AgYAEAkZg2pPk6SIa60yGAoWCAIRtZvz3LUCBgAYACEAAAAAAAAAACAAkgF9CjQKDmNocm9tZV9zeW5jX2JtEgU1MSFibRoSCfms89y1AgYAEfms89y1AgYAKUPi89y1AgYACkUKFmFubm90YXRpb25fY2hyb21lX3N5bmMSBTUxIWJkGhIJALs12LUCBgARALs12LUCBgApdKrz3LUCBgAwgPbWwd3WgAO6AQIIARIAIAEqGFIrYzNQMkZCSkRyd3RYbWRsYU14Vmc9PRLDAQgCEr4BChx6RFZHcnJ0WkxkTSs0QlR5YmcrSENPcldneW89EmZaOkFEcXRBWndUaWk4bWcvdGpMaGxPVXd1aTZJaVVwR25SazJiSkU5cDFaSDBUS1RMeHJqci9BMW1USU1MSUM5alFDMVM0THUvTU0wNkJWckxCTXpSK2xzUnJiUi9qZTlrRjdRPT0YACAAKAAw1MHyot3WgAM4AEAAShw1dXN5L2NwZnBpMUV0b0JIRGdYSXMwcWI0ckE9WgBlAAAAABKvAggSEqoCChxzOHA3aHRITnlmekdiMm1vejJyRkdjRG51eHM9EqYBWjpBRHF0QVp5L1psamFRZ1J4VUxtM0JnRlA4M3o0MytHUGNReHNxWUwydHl4THRjRHJKQU5kbk1vMzRqRkdzQzIyVUJwbTl0bnYyZXoyZmFPS2d5cEpRL2NoQ0lTbi95dW16T3NqYW1uMWRFZXE0K0JXKzBxeHZsaTZOTVRIQjJnVXF3MXpMVlZzYzUzb1hUUnllUW5jREd2U3lKcjkrdDVuTmc9PRgAIAAoADCNibycrNCAAzipy9/enTFAqcvf3p0xShxtMXNwejhHS0lNd2R5ZmliUExLQkMyalBqYTg9WiEiH////0V0eEJOY3JQM3daZk5rY0J0bDN1Q2tncHdCVT1lgPI+xxKvAggQEqoCChw5L0VMbEpNNTVIK0NRWkU0Y2lvQkJ1dmRIdFE9EqYBWjpBRHF0QVp5L1psamFRZ1J4VUxtM0JnRlA4M3o0MytHUGNReHNxWUwydHl4THRjRHJKR3ptalplQlpXLzlySjR1SmE5b3lveFpSNDdmNUpvZUYxNXdJR21HUkZveHhVMHYvSGM2S1RCTmtDWitYS2ZzZGZhcW9wdVREYTgzQTdLWXA4Rm8zdWlKN2x1QTF5ajhBUzdCRDRpOTVlb0RRblAreVE9PRgAIAAoADDal7iClMGAAzjM/rCOmzFAzP6wjpsxShxTRG15NHMzcmNodjFhQW1GcDBEMWFwK0dCZGM9WiEiH////Ut1UDFLSDV0UmRPSTJib2Z5M3BuaDQwamlYcz1l6vCM6xKvAggPEqoCChxyUUlBVFpibG0zVEQ1em1CVlBFYjhMelErY2M9EqYBWjpBRHF0QVp5L1psamFRZ1J4VUxtM0JnRlA4M3o0MytHUGNReHNxWUwydHl4THRjRHJKSTJidHZ5bVJzVXRBQ3lzbmpZZlorR3Z2N2ZNNmozOGhpenNzTUoxUnNPdVZWa1NCdU1oQ3JZRHNIQmhFQ2xJK0Fwejk2bGE0Z3pQWTZnNTJUeWl6QkNVRVVyWjRSNU9uczd0Wk5OcDVORC9kcUUzSUE9PRgAIAAoADDRh5OJk7aAAzj81/avkzFA/Nf2r5MxShwyWFdEdnVCbUQwZkwwWVErS0lhaW1pbEtscXM9WiEiH///+2Zybm5kbWg3RllnWlVSRHdlcmwzbGRoZ2xLZz1l+pHe2xKvAggOEqoCChxXaEMwRkdGWWlJSk12bDdCZHVWMUJOSkNsUkU9EqYBWjpBRHF0QVp5L1psamFRZ1J4VUxtM0JnRlA4M3o0MytHUGNReHNxWUwydHl4THRjRHJKTDN2YTdoT0dsaGRtTUNxNThwK1lnU2xsUzZ4MjV6MDVobnZucUh4cEdTRDQ1MUhlRWxNOGhBZFNvZHJvekM3RXFNUTErazF4OXhkU0poSmU3ZmxGRVo5cVJLWUcrMEtKV1U0MW0rcXg1VWlDNkNXSlE9PRgAIAAoADChj+7cqs2AAzipr/CbkzFAqa/wm5MxShxzQlRkWDlHOUljRElqQVM2bHQ0SVAyY3oxYWM9WiEiH///9kM2Vkt4a3YwSU1ZVm1KaGR1RTJwMGVNUkVOMD1lUXsueRKvAggREqoCChxuWUJXeVFtb0ExUmJpcUxCRHZDZmM2S0Z1YlE9EqYBWjpBRHF0QVp5L1psamFRZ1J4VUxtM0JnRlA4M3o0MytHUGNReHNxWUwydHl4THRjRHJKRlRFcjRYWGZxK3RqRi93YVFqRFRBTHRSM3JQbjZIejNPeit5NkE0Ti8xSjFNUDllN1FFakxraThxRXlZZGhpRWl2MmEwUXU1MVhPRFRCVVhvR2FDSzNkVzhJUTdvUWw4a2pXQ0xTTVFzMmo3ZXpMSXc9PRgAIAAoADDmg7+YrNCAAzi4id/enTFAuInf3p0xShxuYzZQR3IyMDBhTWNlc2kzejVkanFrTWl5OE09WiEiH////kxaeWYxTm5HejAvSk0wZ1JpMlBUMWhrMXBPTT1lSc6dgRKvAggNEqoCChxQWnUvaVYxaHFTSnF3YWZSN2hVMnY1aFlzZzg9EqYBWjpBRHF0QVp5L1psamFRZ1J4VUxtM0JnRlA4M3o0MytHUGNReHNxWUwydHl4THRjRHJKQUxpaW9MbFJ0d3YzTHBKeHQxWWYrbEdKaVR4aVB1eEFtbFpQYVhjUG15OW5CWlhWWUQ0L0dzV1Naa2N0eTVvdUJiQzdIMXRQSkxGbkN5Vy96NnBYdnlaeEZwOUwxNTYvemRMNUpYK0l3WENrQWpZM0E9PRgAIAAoADDRh5OJk7aAAzjCucO9lzFAwrnDvZcxShxNRVd0YlUxNml5N1ZaOEpBZlhndjVGL1k4cms9WiEiH///8UpnMnk3YWNibkYweG5IZ0xRaHFzSlFOQy96RT1lpic92xKuAggLEqkCChxMMFI2MFhWcnpVQTAvOUZxdCttOExzbFZrMVk9EqYBWjpBRHF0QVp5L1psamFRZ1J4VUxtM0JnRlA4M3o0MytHUGNReHNxWUwydHl4THRjRHJKSVB3bXhXYlY2aFlwU3V4T2plbTZ1SFpXb2VnS2JCN256N0VmVGdTT29FbVZLRE9kUHpTMG40aTdsN2JORkhvaTBIQWxGYUhDdUVVeFZpL2hzT0E5TEk4RlRCalpTbXJUdWYyRzJpMTRLS3dYUGxnbkE9PRgAIAIoAjCY9pKo3daAAzjVrNezhjFA1t2qx54xShxGVWFIdFdUUlVkVzJ0c1hFb1hkZkR3MmdveU09WiAiHv/+S3hUU3l4NWhkTkRrenVVUzh3eHN3eUVhaWNFPWUdE7IWEq4CCAgSqQIKHG1rNGR2MnhYQWorSjA1T2JDTjc2TmIrMXQrTT0SpgFaOkFEcXRBWnkvWmxqYVFnUnhVTG0zQmdGUDgzejQzK0dQY1F4c3FZTDJ0eXhMdGNEckpES2RFWXR3VHg2WDFBZlpiNEdHVmQ3RWI2TWpuVzk3bXFjdTh5dzNjTUhLTElaWEtzVUpDNkhjRFZIcXF1dTBJMlA4Z0h2UFV4bzBnYnM0Uy8rMUxIY2VlTFZ4andRVS8rTEozZG5YcHlxUUNmT0xvZz09GAAgAigCMJj2kqjd1oADOOr/l9eAMUDU3arHnjFKHDFuZE1URGRocWdWWUNOWXh3RFlZeGU2eUlsND1aICIe//tmS3F3dGdRc1RDaEY4SGRVeWdQTWFJU1YyeW89ZaPH4PwSrgIIBxKpAgocdU4yWVp4YUhTRkY4VG4xckRtZ2FjdHhQaXM0PRKmAVo6QURxdEFaeS9abGphUWdSeFVMbTNCZ0ZQODN6NDMrR1BjUXhzcVlMMnR5eEx0Y0RySkx5YlEySllod2crSDk3SytucWtDTi9BdjFaNm42NjZ0endjc0tNbEVPTDZvNHRDQ1VqSjR5dlY0U2w2TDdOdFQyYXdzNDNyTUQ4Nkg3N1Z6QlpoMVJJeDEyUzJ6bFJUVmsvOWl4bXljWk5mbU04bElBPT0YACACKAIwmPaSqN3WgAM4uduFxZYxQNPdqseeMUocbDRJYUQvVWxNTEJ1bEIyS3NtUUFJR2t3amxVPVogIh7/9HF1ck9nSXljUnJFbEpHWmI3d3hkMjFXSlJGcz1l/CHFwhKuAggKEqkCChxrMnFzYWEzMHBBSGtyR3RnNXlxSml5TDdwdWc9EqYBWjpBRHF0QVp5L1psamFRZ1J4VUxtM0JnRlA4M3o0MytHUGNReHNxWUwydHl4THRjRHJKR2JDMmFPdDZYTlFTRHdOYWtnZjYyUVo5ci91cVFPcDd6SUczOWxGSVlrTHY1dUJUOHpBMjg0c0EzM1AycUVxd3RtTlY5NWtmQjFhWHg4bitNL3ZUbEF1VDNMV1BycWRUZFNUK2N1SWlMMlAyakZTbFE9PRgAIAIoAjCY9pKo3daAAziVxLC0hTFA1d2qx54xShxlcUdoUFpmY1NPelBkVk50Z2pkRGJGaGxLa3M9WiAiHv/9MDd3clhQekJCL3QxeXVsN3E4MzlmbENMR2UwPWVsSgBFEu0BCAYS6AEKHFFOY1pUZzRVVkY3Q24xZjNjS0lzODR3eERDVT0SZlo6QURxdEFaenk0cmlKWU1aOUdVdnRVS3VSaitjcFZXY3J1TGtJNUxadlVtVVg0M1NwcXMyL01aNDRJVXJBdGl5Ym91ZTVvQkNuM1o5NU42Z0V1TEErZ3EzeHBPa040ajl5ZFE9PRgAIAAoADDvxYSb2er9AjjerYP77zBA3q2D++8wShxSR3ErTXFhQlQrTjhwcW8reGFxSE1rRGx1Tms9WiAiHv/uem8vMmZoc2dYM1dXZFpNVGJsWk5XTFRMd1QwPWUAAAAAEu0BCAkS6AEKHEI5QnZXVHJ5aG5aUzZCanNvWVJEMU5YOTR6OD0SZlo6QURxdEFaenk0cmlKWU1aOUdVdnRVS3VSaitjcFM2NFBhdzZSbVRQL29RM3Vabyt2dGxsZ2tsTGYveHM2RVRSK092QjJEYTFCNVpwNFRtSHVrVUZ4eG1oaVRpZFhmelFYQnc9PRgAIAIoAjCY9pKo3daAAzjS1s/36TBA1N2qx54xShxpQlBra0NEakppSk5DWWgxOThoL2xTYVFKdDg9WiAiHv/8UFJOTy9jY2hmQ3ZmZFNKV3RvQS9nRjJ0QmtvPWUo0OGpEuwBCAUS5wEKHDNkSzEzQ2lYKzFWOG1rbUNpTkpwR0QzYzR6TT0SZlo6QURxdEFaenk0cmlKWU1aOUdVdnRVS3VSaitjcDdBQ0FhNFJRZHJLN3F1MTV4Tk84dEtkSzk0M1M0T3BlMVh4dWU1VEJadmdYcml6RjNTU1YrUXBvaXZKRVBvQUdycHErNlE9PRgAIAIoAjCY9pKo3daAAzjXlaCl4jBA0t2qx54xShxPdTBCTTBTUC9YTUZ0M1VBVjRGRkNvSlovNFU9Wh8iHatEaUt6aU9ocGgyenBnSHBJTDdKd1hLam4xL009ZWnFvScSqwEIARKmAQocL0VLTGFVVXlNZGJLRWsxQmEyVWlueURuZjdJPRJOWjpBRHF0QVp3Uk5yM1l3TUpua2ZMbENBMzdESU53N2MycXlUSjBxSkpWNm5SeG9Xdlo0RzZmTytxTDdzMjFlSnR5Tkp3c2NvNU04YVpGGAAgACgAMNTB8qLd1oADOABAAEocVStHR0l0WkVEcFpzSVNsT1VhSVR1SUxkTW5JPVoAZQAAAAASrwIIDBKqAgocMURoaThGbFg2UnNKajZXNGI5TU5Id3ZrYk9VPRKmAVo6QURxdEFaeS9abGphUWdSeFVMbTNCZ0ZQODN6NDMrR1BjUXhzcVlMMnR5eEx0Y0RySkpzOUdkUkJPbFl4bGpjeEQ2eGlod3NmVW5LdGo0RktDOFBuY2tiYVkxVEczRGxiNEhkTVpETHJoUVhPU1BnallTcjBYbkhjT3hOL09jNjMrNHFUc2FPOVJqRWJXTHY3NjB0a3o0dVg5SGJHamhSNU93PT0YACAAKAAw0YeTiZO2gAM42uDl1JIxQNrg5dSSMUocQU9uR2U4MHNDMXJxd3J4Q25sdllweW04dFVZPVohIh///+xlNHV6NWZUUDA5b3A4Slg0U2hOSTFNQ0gycUU9ZeVeiUUSwwEIAxK+AQoceTVXRTI3dUk2dlgvRGVJU0hKem5qTXF1V1dzPRJmWjpBRHF0QVp4b3RBR1l2Q3o0VG9UWFhGUVRnazZaaHM0WXd1UVZkRzFpQWppN1ZyR1hCb2hYOWdKNnBodHBLb3JhRFBTSEdXTXAxOEtwdlRHV25tay9scW5qSjN0Z1RVdTNnZz09GAAgACgAMNTB8qLd1oADOABAAEocNzlsK0xSRVVwaWFFdkREK0c0M2NwWFN0d0JjPVoAZQAAAAAYASD+lrPHnjE=",
+   "version": 1
+}

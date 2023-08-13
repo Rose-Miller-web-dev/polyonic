@@ -1,0 +1,5 @@
+2023/08/12-04:44:17.261 17c4 Reusing MANIFEST /home/pixel1/Desktop/15-test/%USERPROFILE%/proxy-profile/Default/IndexedDB/https_app.clipchamp.com_0.indexeddb.leveldb/MANIFEST-000001
+2023/08/12-04:44:21.161 19a9 Level-0 table #5: started
+2023/08/12-04:44:21.320 19a9 Level-0 table #5: 3818 bytes OK
+2023/08/12-04:44:21.585 19a9 Delete type=0 #3
+2023/08/12-04:44:21.585 19a9 Manual compaction at level-0 from (begin) .. (end); will stop at (end)

@@ -1,3 +1,4 @@
+
 <ion-header>
   <ion-toolbar>
     <ion-title>
@@ -5,6 +6,7 @@
     </ion-title>
   </ion-toolbar>
 </ion-header>
+
 
 <ion-content>
   <ion-card class="welcome-card">
@@ -24,7 +26,7 @@
       <ion-card-title>Data</ion-card-title>
     </ion-card-header>
     <ion-card-content>
-      <!-- All of the Node.js APIs are available in this renderer process. -->
+       All of the Node.js APIs are available in this renderer process. 
       <span *ngIf="electron.remote && electron.remote.process && electron.isElectronApp">
         <pre>
           Node v{{electron.remote.process.versions.node}}
@@ -34,6 +36,16 @@
       </span>
       We are using PouchDB for our Database<pre>{{dbInfo | json}}</pre>
     </ion-card-content>
+  </ion-card>
+
+  <ion-card>
+    <ion-card-header>
+    </ion-card-header>
+
+    <ion-card-content>
+      <br><br><br>
+    </ion-card-content>
+
   </ion-card>
 </ion-content>
 

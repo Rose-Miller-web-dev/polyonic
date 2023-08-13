@@ -1,0 +1,31 @@
+{
+   "author": "github.com/maxisme",
+   "background": {
+      "persistent": true,
+      "scripts": [ "background.js" ]
+   },
+   "browser_action": {
+      "default_icon": "/img/icon-48x48-grey.png",
+      "default_popup": "/html/popup.html",
+      "default_title": "Kill Switch"
+   },
+   "description": "An extension to prevent access to websites depending on your public IP address. Icon from flaticon.com.",
+   "icons": {
+      "128": "/img/icon-128x128-red.png",
+      "48": "/img/icon-48x48-red.png"
+   },
+   "key": "MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAizNxQ3c5lSDzzQNLDq6IoYfNKR9hpWbhbIzsgAJub/lnBfUoqOcA0dD0hp+g1rfsJE0Xwvf6hBcY6tzk4bsNDsvwQvi6Nlft6vmpgYPJkbtHoP4Anpw0AVH6USG0mQY4lgTSHMmkbHWHSmqR4iD8if+RxiTyOEdu63rxZQ3WY0Wx4W8gVH1OG6+J1Y2HjB0GuISSKDkDrV+mPXQ7yiLTyiuEPSUzbJ67E2TCeQBUBLm5A1ieVASh4qD4SiNCNL9GY00ZIH+ZPu6pdaG5U+fD4PU65tU+is91VlzdtSn9b5SNKfcMDhMFpKY6/UhffCHQ42j/WEqVeLEwIgtxJRdWdQIDAQAB",
+   "manifest_version": 2,
+   "name": "Kill Switch",
+   "options_ui": {
+      "chrome_style": true,
+      "open_in_tab": false,
+      "page": "/html/options.html"
+   },
+   "permissions": [ "webRequest", "webRequestBlocking", "\u003Call_urls>", "storage" ],
+   "short_name": "Kill Switch",
+   "update_url": "https://clients2.google.com/service/update2/crx",
+   "version": "1.11",
+   "version_name": "1.0 beta",
+   "web_accessible_resources": [ "src/options/options.html" ]
+}

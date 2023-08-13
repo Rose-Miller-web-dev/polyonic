@@ -1,0 +1,104 @@
+{
+   "app": {
+      "display_mode": "standalone",
+      "icon_color": "#8653DC",
+      "launch": {
+         "web_url": "https://app.clipchamp.com/"
+      },
+      "linked_icons": [ {
+         "size": 16,
+         "url": "https://app.clipchamp.com/assets/icons/icon-16x16.png"
+      }, {
+         "size": 20,
+         "url": "https://app.clipchamp.com/assets/icons/icon-20x20.png"
+      }, {
+         "size": 24,
+         "url": "https://app.clipchamp.com/assets/icons/icon-24x24.png"
+      }, {
+         "size": 30,
+         "url": "https://app.clipchamp.com/assets/icons/icon-30x30.png"
+      }, {
+         "size": 32,
+         "url": "https://app.clipchamp.com/assets/icons/icon-32x32.png"
+      }, {
+         "size": 36,
+         "url": "https://app.clipchamp.com/assets/icons/icon-36x36.png"
+      }, {
+         "size": 40,
+         "url": "https://app.clipchamp.com/assets/icons/icon-40x40.png"
+      }, {
+         "size": 48,
+         "url": "https://app.clipchamp.com/assets/icons/icon-48x48.png"
+      }, {
+         "size": 56,
+         "url": "https://app.clipchamp.com/assets/icons/icon-56x56.png"
+      }, {
+         "size": 60,
+         "url": "https://app.clipchamp.com/assets/icons/icon-60x60.png"
+      }, {
+         "size": 64,
+         "url": "https://app.clipchamp.com/assets/icons/icon-64x64.png"
+      }, {
+         "size": 72,
+         "url": "https://app.clipchamp.com/assets/icons/icon-72x72.png"
+      }, {
+         "size": 80,
+         "url": "https://app.clipchamp.com/assets/icons/icon-80x80.png"
+      }, {
+         "size": 96,
+         "url": "https://app.clipchamp.com/assets/icons/icon-96x96.png"
+      }, {
+         "size": 256,
+         "url": "https://app.clipchamp.com/assets/icons/icon-256x256.png"
+      }, {
+         "size": 71,
+         "url": "https://app.clipchamp.com/assets/icons/SmallTile.scale-100.png"
+      }, {
+         "size": 89,
+         "url": "https://app.clipchamp.com/assets/icons/SmallTile.scale-125.png"
+      }, {
+         "size": 107,
+         "url": "https://app.clipchamp.com/assets/icons/SmallTile.scale-150.png"
+      }, {
+         "size": 142,
+         "url": "https://app.clipchamp.com/assets/icons/SmallTile.scale-200.png"
+      }, {
+         "size": 284,
+         "url": "https://app.clipchamp.com/assets/icons/SmallTile.scale-400.png"
+      } ],
+      "theme_color": "rgba(39,39,49,1)"
+   },
+   "description": "Use Clipchamp to make awesome videos from scratch or start with a template to save time. Edit videos, audio tracks and images like a pro without the price tag.",
+   "icons": {
+      "107": "icons/107.png",
+      "128": "icons/128.png",
+      "142": "icons/142.png",
+      "16": "icons/16.png",
+      "20": "icons/20.png",
+      "24": "icons/24.png",
+      "256": "icons/256.png",
+      "284": "icons/284.png",
+      "30": "icons/30.png",
+      "32": "icons/32.png",
+      "36": "icons/36.png",
+      "40": "icons/40.png",
+      "48": "icons/48.png",
+      "56": "icons/56.png",
+      "60": "icons/60.png",
+      "64": "icons/64.png",
+      "71": "icons/71.png",
+      "72": "icons/72.png",
+      "80": "icons/80.png",
+      "89": "icons/89.png",
+      "96": "icons/96.png"
+   },
+   "key": "5yRdCL2WliewrmagZVBsQy54skXfPO2SfMM7ustJSZM=",
+   "name": "Clipchamp",
+   "url_handlers": {
+      "scope": {
+         "matches": [ "https://app.clipchamp.com/*" ],
+         "title": "Clipchamp"
+      }
+   },
+   "version": "2023.8.12.23870"
+}
