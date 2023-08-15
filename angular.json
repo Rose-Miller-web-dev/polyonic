@@ -23,7 +23,12 @@
                "pouchdb-adapter-cordova-sqlite",
                "polyonic-secure-pouch",
                "pouchdb",
-               "pouchdb-utils"
+               "pouchdb-utils",
+               "spark-md5",
+               "argsarray",
+               "inherits",
+               "uuid",
+               "vuvuzela"
             ],
             "assets": [
               {
