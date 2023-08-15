@@ -69,7 +69,7 @@
     "cordova": "^12.0.0",
     "cordova-plugin-ionic-webview": "^5.0.0",
     "cordova-sqlcipher-adapter": "^0.5.3",
-    "core-js": "3.23.3",
+    "core-js": "3.25.4",
     "ngx-electron": "^2.2.0",
     "patch-package": "^8.0.0",
     "polyonic-secure-pouch": "1.0.7",
