@@ -28,7 +28,7 @@ const routes: Routes = [
   {
     path: 'tab3',
     component: Tab3Page
-  }
+  },
 
 ]
 
