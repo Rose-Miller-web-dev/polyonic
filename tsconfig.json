@@ -9,8 +9,8 @@
     "moduleResolution": "node",
     "emitDecoratorMetadata": true,
     "experimentalDecorators": true,
-    "target": "ES2022",
-    "module": "esnext",
+    "target": "es2022",
+    "module": "ESNext",
     "lib": [
       "es2022",
       "dom"
