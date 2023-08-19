@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core'
 import { ElectronService } from '../electron.service'
 import { DataService } from '../data.service'
 import { EventService } from '../events.service'
+import { AppComponent } from '../app.component'
 
 @Component({
   selector: 'app-tab1',
@@ -17,7 +18,8 @@ export class Tab1Page  implements OnInit {
   constructor(
     public electronService: ElectronService,
     private data: DataService,
-    private events: EventService
+    private events: EventService,
+    private appC: AppComponent
   ) {
     this.events.subscribe('database:available', (info) => {
       console.log('Database is now available')

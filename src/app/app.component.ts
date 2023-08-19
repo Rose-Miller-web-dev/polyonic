@@ -13,6 +13,8 @@ import { StatusBar, Style } from '@capacitor/status-bar'
 
 export class AppComponent {
 
+  listData = []
+
   constructor(
 
     private platform: Platform,
@@ -21,6 +23,7 @@ export class AppComponent {
   ) {
 
     this.initializeApp()
+    this.loadData()
   }
 
   initializeApp() {
@@ -38,13 +41,24 @@ export class AppComponent {
         
       }
 
-    //   this.data.setup()
-    //   .then(info => {
-    //     console.log('Database setup complete')
-    //   })
-    //   .catch(error => console.log('Error setting up the Database: ', error))
-    // 
+   
   }
     )
+  }
+
+  async loadData() {
+    this.data.getData().subscribe(res => {
+      this.listData = res
+    })
+  }
+
+  async addData() {
+    await this.data.addData(`Polyonic db test ${Math.ceil(Math.random() * 200)}`)
+    this.loadData()
+  }
+
+  async removeItem(index) {
+    this.data.removeItem(index)
+    this.listData.splice(index , 1)
   }
 }
