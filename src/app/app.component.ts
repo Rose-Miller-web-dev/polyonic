@@ -38,11 +38,13 @@ export class AppComponent {
         
       }
 
-      this.data.setup()
-      .then(info => {
-        console.log('Database setup complete')
-      })
-      .catch(error => console.log('Error setting up the Database: ', error))
-    })
+    //   this.data.setup()
+    //   .then(info => {
+    //     console.log('Database setup complete')
+    //   })
+    //   .catch(error => console.log('Error setting up the Database: ', error))
+    // 
+  }
+    )
   }
 }
