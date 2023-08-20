@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core'
 import { ElectronService } from '../electron.service'
-import { DataService } from '../data.service'
 import { EventService } from '../events.service'
 import { AppComponent } from '../app.component'
 
@@ -17,13 +16,11 @@ export class Tab1Page  implements OnInit {
 
   constructor(
     public electronService: ElectronService,
-    private data: DataService,
     private events: EventService,
     private appC: AppComponent
   ) {
     this.events.subscribe('database:available', (info) => {
       console.log('Database is now available')
-      this.db = this.data.db
       this.dbInfo = info
     })
   }
@@ -34,10 +31,10 @@ export class Tab1Page  implements OnInit {
     ctx.electron = ctx.electronService
 
     if (ctx.electron.isElectronApp) {
-      ctx.db = ctx.data.db
-      ctx.data.db.info()
-      .then(info => ctx.dbInfo = info)
-      .catch(err => console.log(err))
+      // ctx.db = ctx.data.db
+      // ctx.data.db.info()
+      // .then(info => ctx.dbInfo = info)
+      // .catch(err => console.log(err))
     }
   }
 

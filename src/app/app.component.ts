@@ -1,10 +1,10 @@
 import { Component } from '@angular/core'
 import { SplashScreen } from '@capacitor/splash-screen'
 import { Platform } from '@ionic/angular'
-import { DataService } from './data.service'
 
 import { Network, ConnectionStatus } from '@capacitor/network'
 import { StatusBar, Style } from '@capacitor/status-bar'
+import { StorageService } from './storage.service'
 
 @Component({
   selector: 'app-root',
@@ -18,47 +18,15 @@ export class AppComponent {
   constructor(
 
     private platform: Platform,
-    private data: DataService,
-    
+    private storage: StorageService,
+
   ) {
-
-    this.initializeApp()
-    this.loadData()
+      this.initApp()
   }
 
-  initializeApp() {
-
-    Network.addListener('networkStatusChange', (status: ConnectionStatus) => {
-      const color = status.connected ? 'blue' : 'red';
-      StatusBar.setBackgroundColor({ color });
-    });
-
-    this.platform.ready().then(() => {
-      if (this.platform.is('mobile')) {
-        
-        // StatusBar.setStyle()
-        SplashScreen.hide()
-        
-      }
-
-   
+  async initApp() {
+    await this.storage.initializePlugin()
+    SplashScreen.hide()
   }
-    )
-  }
-
-  async loadData() {
-    this.data.getData().subscribe(res => {
-      this.listData = res
-    })
-  }
-
-  async addData() {
-    await this.data.addData(`Polyonic db test ${Math.ceil(Math.random() * 200)}`)
-    this.loadData()
-  }
-
-  async removeItem(index) {
-    this.data.removeItem(index)
-    this.listData.splice(index , 1)
-  }
+ 
 }
