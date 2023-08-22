@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core'
 import { BrowserModule } from '@angular/platform-browser'
 import { RouteReuseStrategy } from '@angular/router'
-
+import { FormsModule } from '@angular/forms'
 import { IonicStorageModule } from '@ionic/storage-angular'
 import { IonicModule, IonicRouteStrategy } from '@ionic/angular'
 import { SplashScreen } from '@capacitor/splash-screen'
@@ -11,11 +11,14 @@ import { AppRoutingModule } from './app-routing.module'
 import { AppComponent } from './app.component'
 import { Drivers } from '@ionic/storage'
 import * as cordovaSQLiteDriver from 'localforage-cordovasqlitedriver'
+import { NiceComponent } from './nice/nice.component';
+import { MyJeepSqliteDirective } from './my-jeep-sqlite.directive'
 
 @NgModule({
     declarations: [
         AppComponent,
-        
+        NiceComponent,
+        MyJeepSqliteDirective,
     ],
 
     imports: [
@@ -32,6 +35,7 @@ import * as cordovaSQLiteDriver from 'localforage-cordovasqlitedriver'
                 // Drivers.SecureStorage
             ]
         }),
+        FormsModule,
     ],
 
     providers: [
