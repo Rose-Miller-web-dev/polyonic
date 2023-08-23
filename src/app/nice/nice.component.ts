@@ -24,7 +24,7 @@ export class NiceComponent  implements OnInit {
   }
 
   async createUser() {
-    await this.storage.addUser(this.newUserName)
+    await this.storage.addUser()
     this.newUserName = ''
     console.log(this.users, '#users')
   }

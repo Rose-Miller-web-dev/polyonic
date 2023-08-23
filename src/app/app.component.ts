@@ -1,44 +1,69 @@
-import { Component } from '@angular/core'
+import { Component, OnInit } from '@angular/core'
+import { CapacitorSQLite, SQLiteConnection } from '@capacitor-community/sqlite'
+import { Capacitor } from '@capacitor/core'
 import { SplashScreen } from '@capacitor/splash-screen'
 import { Platform } from '@ionic/angular'
-
-import { Network, ConnectionStatus } from '@capacitor/network'
-import { StatusBar, Style } from '@capacitor/status-bar'
 import { StorageService } from './storage.service'
-import { Capacitor } from '@capacitor/core'
+import { JeepSqlite } from "jeep-sqlite/dist/components/jeep-sqlite"
 
 @Component({
   selector: 'app-root',
   templateUrl: 'app.component.html'
 })
 
-export class AppComponent {
+export class AppComponent implements OnInit{
+
+  ngOnInit(): void {
+    this.initApp()
+  }
 
   listData = []
 
-  constructor(
-
-    private platform: Platform,
-    private storage: StorageService,
-
-  ) {
-      this.initApp()
-  }
+  constructor(private platform: Platform, private storage: StorageService) { }
 
   async initApp() {
-    this.storage.loadUsers()
-    await this.storage.initializePlugin()
-    SplashScreen.hide()
+    var sqlite:any
+  try {
+    const platform = Capacitor.getPlatform();
 
-    try {
-      const platform = Capacitor.getPlatform();
-      if (platform === 'web') {
-        await this.storage.initializeWebStore();
-      }
+    // WEB SPECIFIC FUNCTIONALITY
+    if (platform === "web") {
+      sqlite = new SQLiteConnection(CapacitorSQLite)
+      // Create the 'jeep-sqlite' Stencil component
+      customElements.define("jeep-sqlite", JeepSqlite)
+      const jeepSqliteEl = document.createElement("jeep-sqlite")
+      document.body.appendChild(jeepSqliteEl)
+      await customElements.whenDefined("jeep-sqlite")
+      console.log(`after customElements.whenDefined`)
+      console.log(sqlite , '#sqlite')
+      // Initialize the Web store
+      await sqlite.initWebStore()
+      console.log(`after initWebStore22`)
+    }
+    
     } catch (e) {
       console.log(e);
     }
-  
+    
+    try {
+
+      sqlite = new SQLiteConnection(CapacitorSQLite)
+      var db = await sqlite.createConnection(
+          "db_vite",
+          false,
+          "no-encryption",
+          1,
+          false
+      );
+      console.log("Database connection successful!")
+  } catch (error) {
+      console.error("Error creating database connection:", error)
+  }
+    
+    await this.storage.initializePlugin()
+    await this.storage.loadUsers()
+    //await this.storage.addUser()
+    SplashScreen.hide()  
   }
  
 }
