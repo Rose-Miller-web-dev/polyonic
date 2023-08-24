@@ -1,9 +1,7 @@
-import { Injectable, signal, WritableSignal, Renderer2, RendererFactory2 } from '@angular/core';
+import { Injectable, OnInit, signal, WritableSignal } from '@angular/core';
 import { CapacitorSQLite, SQLiteConnection, SQLiteDBConnection } from '@capacitor-community/sqlite';
-import { Capacitor } from '@capacitor/core';
-import { JeepSqlite } from 'jeep-sqlite/dist/components/jeep-sqlite';
-
-const DB_USERS = 'myuserdb'
+import { Observable, of } from 'rxjs';
+import { NiceComponent } from './nice/nice.component';
 
 export interface User {
   id: number
@@ -14,14 +12,21 @@ export interface User {
 @Injectable({
   providedIn: 'root'
 })
-export class StorageService {
 
+export class StorageService implements OnInit{
+
+  ngOnInit(): void {
+      this.nice.ngOnInit()
+  }
+
+  private nice: NiceComponent
   private sqlite: SQLiteConnection = new SQLiteConnection(CapacitorSQLite)
   private db!: SQLiteDBConnection
-  private user: WritableSignal<User[]> = signal<User[]>([])
+  private user: any
   
-  constructor() {
-  }
+  constructor() { 
+    
+   }
 
   async initializePlugin() {
     this.db = await this.sqlite.createConnection(
@@ -39,89 +44,64 @@ export class StorageService {
       name TEXT NOT NULL
       );`
 
-    const respInsert = await this.db.query(
-      `INSERT INTO users (id,name) values (?,?)`,
-      [Date.now(),'NAME '+Date.now()]
-    )
-    //console.log(`response: ${JSON.stringify(respInsert)}`);
-    // const respSelect = await this.db.query(
-    //   `SELECT * FROM users`
-    // )
-    //console.log(`selected: ${JSON.stringify(respSelect)}`);
-
     await this.db.execute(schema)
+    //await this.sqlite.closeConnection("db_vite", false)
     return true
   }
 
   async loadUsers() {
-    console.log("loading users")
-   
-    await this.db.open();
+    
+    try {
+      const respSelect = await this.db.query(`SELECT * FROM users`);
+      const userArray = Array.from(respSelect.values);
+      this.user = userArray.map(user => ({
+        id: user.id,
+        name: user.name,
+      }));
 
-    const queryCreateTable = `
-      CREATE TABLE IF NOT EXISTS users (
-      id INTEGER PRIMARY KEY NOT NULL,
-      name TEXT NOT NULL
-      );`;
-
-    const respCT = await this.db.execute(queryCreateTable);
-    console.log(`res: ${JSON.stringify(respCT)}`);
-
-    const respInsert = await this.db.query(`INSERT INTO users (id,name) values (?,?)`,
-    [Date.now(), 'NAME '+ Date.now()]
-    )
-    console.log(`resInsert: ${JSON.stringify(respInsert)}`);
-
-    const respSelect = await this.db.query(`SELECT * FROM users`)
-    console.log(`resSELECT: ${JSON.stringify(respSelect)}`);
-
-    console.log("loaded successfully!")
-    await this.sqlite.closeConnection("db_vite", false);
+    } catch (error) {
+      console.error("Error loading users:", error);
+    }
   }
 
-  async addUser() {
+  async addUser(name: string) {
 
-    console.log("adding users")
-    await this.db.open();
+    try {
+      console.log("Adding user:", name);
+      const id = Math.floor(Math.random() * 1000000);
+      await this.db.query(`INSERT INTO users (id, name) VALUES (?, ?)`, [id, name]);
+      await this.loadUsers();
+      console.log("User added successfully!");
+    } catch (error) {
+      console.error("Error adding user:", error);
+    }
 
-    const queryCreateTable = `
-      CREATE TABLE IF NOT EXISTS users (
-      id INTEGER PRIMARY KEY NOT NULL,
-      name TEXT NOT NULL
-      );`;
-
-    const respCT = await this.db.execute(queryCreateTable);
-    console.log(`res: ${JSON.stringify(respCT)}`);
-
-    const respInsert = await this.db.query(`INSERT INTO users (id,name) values (?,?)`,
-    [Date.now(), 'NAME '+ Date.now()]
-    )
-    console.log(`resInsert: ${JSON.stringify(respInsert)}`);
-
-    const respSelect = await this.db.query(`SELECT * FROM users`)
-    console.log(`resSELECT: ${JSON.stringify(respSelect)}`);
-
-    console.log("added successfully!")
-    await this.sqlite.closeConnection("db_vite", false);
+    await this.sqlite.closeConnection("db_vite", false) //PROBLEMATIC LINE
   }
 
-  async updateUserById(id: string, active: number) {
-    const query = `UPDATE users SET active=${active} WHERE id=${id}`
-    const result = await this.db.query(query)
-
-    this.loadUsers()
-    return result
+  async updateUserById(user: any, name: string) {
+    console.log("the user is ", user, " and new name is" ,name)
+    await this.db.query(`UPDATE users SET name=? WHERE id=?;`, [name, user.id]);
+    console.log("updated")
+    await this.loadUsers()
   }
 
   async deleteUserById(id: string) {
     const query = `DELETE FROM users WHERE id=${id}`
     const result = await this.db.query(query)
 
-    this.loadUsers()
+    await this.loadUsers()
+    console.log("deleted successfully")
     return result
   }
 
   async getUsers() {
-    return this.user
+    await this.loadUsers()
+    //console.log("service users: ", this.user)
+    return await this.user
+  }
+
+  async closeDB() {
+    await this.sqlite.closeConnection("db_vite", false)
   }
 }

@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core'
 import { Routes, RouterModule } from '@angular/router'
+import { NiceComponent } from './nice/nice.component'
 
 const routes: Routes = [
 
@@ -8,6 +9,11 @@ const routes: Routes = [
     loadChildren: () => import('./tabs/tabs.module').then(
       m => m.TabsPageModule
     )
+  },
+
+  {
+    path: 'nice',
+    component: NiceComponent
   },
 
 ]

@@ -12,13 +12,12 @@ import { AppComponent } from './app.component'
 import { Drivers } from '@ionic/storage'
 import * as cordovaSQLiteDriver from 'localforage-cordovasqlitedriver'
 import { NiceComponent } from './nice/nice.component';
-import { MyJeepSqliteDirective } from './my-jeep-sqlite.directive'
 
 @NgModule({
     declarations: [
         AppComponent,
         NiceComponent,
-        MyJeepSqliteDirective,
+       
     ],
 
     imports: [

@@ -5,6 +5,7 @@ import { SplashScreen } from '@capacitor/splash-screen'
 import { Platform } from '@ionic/angular'
 import { StorageService } from './storage.service'
 import { JeepSqlite } from "jeep-sqlite/dist/components/jeep-sqlite"
+import { NiceComponent } from './nice/nice.component'
 
 @Component({
   selector: 'app-root',
@@ -13,13 +14,11 @@ import { JeepSqlite } from "jeep-sqlite/dist/components/jeep-sqlite"
 
 export class AppComponent implements OnInit{
 
-  ngOnInit(): void {
-    this.initApp()
+  async ngOnInit() {
+    await this.initApp()
   }
 
-  listData = []
-
-  constructor(private platform: Platform, private storage: StorageService) { }
+  constructor(private platform: Platform, private storage: StorageService,) { }
 
   async initApp() {
     var sqlite:any
@@ -34,11 +33,11 @@ export class AppComponent implements OnInit{
       const jeepSqliteEl = document.createElement("jeep-sqlite")
       document.body.appendChild(jeepSqliteEl)
       await customElements.whenDefined("jeep-sqlite")
-      console.log(`after customElements.whenDefined`)
-      console.log(sqlite , '#sqlite')
+      //console.log(`after customElements.whenDefined`)
+      // console.log(sqlite , '#sqlite')
       // Initialize the Web store
       await sqlite.initWebStore()
-      console.log(`after initWebStore22`)
+      //console.log(`after initWebStore22`)
     }
     
     } catch (e) {
@@ -62,8 +61,7 @@ export class AppComponent implements OnInit{
     
     await this.storage.initializePlugin()
     await this.storage.loadUsers()
-    //await this.storage.addUser()
-    SplashScreen.hide()  
+    SplashScreen.hide()
   }
- 
+
 }
