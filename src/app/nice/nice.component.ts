@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { AppComponent } from '../app.component';
 import { StorageService, User } from '../storage.service';
 
 @Component({
