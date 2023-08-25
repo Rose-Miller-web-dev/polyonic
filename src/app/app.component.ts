@@ -5,7 +5,6 @@ import { SplashScreen } from '@capacitor/splash-screen'
 import { Platform } from '@ionic/angular'
 import { StorageService } from './storage.service'
 import { JeepSqlite } from "jeep-sqlite/dist/components/jeep-sqlite"
-import { NiceComponent } from './nice/nice.component'
 
 @Component({
   selector: 'app-root',
@@ -30,21 +29,21 @@ export class AppComponent implements OnInit{
 
   async initApp() {
     var sqlite:any
-  try {
-    const platform = Capacitor.getPlatform();
+    try {
+      const platform = Capacitor.getPlatform();
 
-    if (platform === "web") {
-      sqlite = new SQLiteConnection(CapacitorSQLite)
-      customElements.define("jeep-sqlite", JeepSqlite)
-      const jeepSqliteEl = document.createElement("jeep-sqlite")
-      document.body.appendChild(jeepSqliteEl)
-      await customElements.whenDefined("jeep-sqlite")
-      await sqlite.initWebStore()
-    }
-    
-    } catch (e) {
-      console.log(e);
-    }
+      if (platform === "web") {
+        sqlite = new SQLiteConnection(CapacitorSQLite)
+        customElements.define("jeep-sqlite", JeepSqlite)
+        const jeepSqliteEl = document.createElement("jeep-sqlite")
+        document.body.appendChild(jeepSqliteEl)
+        await customElements.whenDefined("jeep-sqlite")
+        await sqlite.initWebStore()
+      }
+      
+      } catch (e) {
+        console.log(e);
+      }
     
     try {
 
@@ -57,9 +56,9 @@ export class AppComponent implements OnInit{
           false
       );
       console.log("Database connection successful!")
-  } catch (error) {
-      console.error("Error creating database connection:", error)
-  }
+    } catch (error) {
+        console.error("Error creating database connection:", error)
+    }
     
     await this.storage.initializePlugin()
     await this.storage.loadUsers()

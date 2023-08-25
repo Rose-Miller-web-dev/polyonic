@@ -1,11 +1,10 @@
 import { Component, OnInit } from '@angular/core';
-import { NavigationEnd, Router } from '@angular/router';
+import { Router } from '@angular/router';
 import { CapacitorSQLite, SQLiteConnection } from '@capacitor-community/sqlite';
 import { Capacitor } from '@capacitor/core';
 import { StorageService, User } from '../storage.service';
 import { JeepSqlite } from "jeep-sqlite/dist/components/jeep-sqlite"
 import { SplashScreen } from '@capacitor/splash-screen';
-import { filter } from 'rxjs/operators';
 
 @Component({
   selector: 'app-nice',
@@ -16,33 +15,22 @@ import { filter } from 'rxjs/operators';
 export class NiceComponent  implements OnInit {
   
   async ngOnInit() {
-    console.log("init")
-    await this.initWebApp()
-    await this.storage.initializePlugin()
-    await this.storage.loadUsers()
-    await this.loadProducts()
+    await this.loadDb()
   }
 
   async ngOnDestroy() {
     window.location.reload()
-    await this.initWebApp()
-    await this.storage.initializePlugin()
-    await this.storage.loadUsers()
-    await this.loadProducts()
+    await this.loadDb()
   }
 
   async ngAfterViewInit() {
     this.router.navigate(['/nice'])
-    await this.initWebApp()
-    await this.storage.initializePlugin()
-    await this.storage.loadUsers()
-    await this.loadProducts()
+    await this.loadDb()
   }
   
   public isEdit: boolean = false
   newUserName = ''
   users: any
-  isWeb: any
   private currentUser: any
   
   constructor(private storage: StorageService, private router: Router,) { }
@@ -120,6 +108,13 @@ export class NiceComponent  implements OnInit {
     await this.storage.initializePlugin()
     await this.storage.loadUsers()
     SplashScreen.hide()
+  }
+
+  async loadDb() {
+    await this.initWebApp()
+    await this.storage.initializePlugin()
+    await this.storage.loadUsers()
+    await this.loadProducts()
   }
 
 }

@@ -23,9 +23,7 @@ export class StorageService implements OnInit{
   private db!: SQLiteDBConnection
   private user: any
   
-  constructor() { 
-    
-   }
+  constructor() { }
 
   async initializePlugin() {
     this.db = await this.sqlite.createConnection(
@@ -101,7 +99,6 @@ export class StorageService implements OnInit{
 
   async getUsers() {
     await this.loadUsers()
-    //console.log("service users: ", this.user)
     return await this.user
   }
 
