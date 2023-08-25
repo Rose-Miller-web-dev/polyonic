@@ -1,10 +1,11 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { NavigationEnd, Router } from '@angular/router';
 import { CapacitorSQLite, SQLiteConnection } from '@capacitor-community/sqlite';
 import { Capacitor } from '@capacitor/core';
 import { StorageService, User } from '../storage.service';
 import { JeepSqlite } from "jeep-sqlite/dist/components/jeep-sqlite"
 import { SplashScreen } from '@capacitor/splash-screen';
+import { filter } from 'rxjs/operators';
 
 @Component({
   selector: 'app-nice',
@@ -15,11 +16,27 @@ import { SplashScreen } from '@capacitor/splash-screen';
 export class NiceComponent  implements OnInit {
   
   async ngOnInit() {
+    console.log("init")
+    await this.initWebApp()
+    await this.storage.initializePlugin()
+    await this.storage.loadUsers()
     await this.loadProducts()
   }
 
   async ngOnDestroy() {
     window.location.reload()
+    await this.initWebApp()
+    await this.storage.initializePlugin()
+    await this.storage.loadUsers()
+    await this.loadProducts()
+  }
+
+  async ngAfterViewInit() {
+    this.router.navigate(['/nice'])
+    await this.initWebApp()
+    await this.storage.initializePlugin()
+    await this.storage.loadUsers()
+    await this.loadProducts()
   }
   
   public isEdit: boolean = false
@@ -49,7 +66,7 @@ export class NiceComponent  implements OnInit {
     await this.loadProducts()
     await this.storage.closeDB()
     this.router.navigate(['/nice'])
-    await this.initApp()
+    await this.initWebApp()
   }
 
   async updateUser(user: User) {
@@ -62,38 +79,28 @@ export class NiceComponent  implements OnInit {
     await this.storage.deleteUserById(user.id.toString())
     await this.loadProducts()
     await this.storage.closeDB()
+    await this.initWebApp()
     this.router.navigate(['/nice'])
-    await this.initApp()
-  }
-
-  async saveChanges() {
-    await this.storage.closeDB()
-    this.router.navigate(['/nice'])
-  }
-
-  async initApp() {
-    var sqlite:any
-  try {
-    const platform = Capacitor.getPlatform();
-
-    // WEB SPECIFIC FUNCTIONALITY
-    if (platform === "web") {
-      sqlite = new SQLiteConnection(CapacitorSQLite)
-      // Create the 'jeep-sqlite' Stencil component
-      customElements.define("jeep-sqlite", JeepSqlite)
-      const jeepSqliteEl = document.createElement("jeep-sqlite")
-      document.body.appendChild(jeepSqliteEl)
-      await customElements.whenDefined("jeep-sqlite")
-      //console.log(`after customElements.whenDefined`)
-      // console.log(sqlite , '#sqlite')
-      // Initialize the Web store
-      await sqlite.initWebStore()
-      //console.log(`after initWebStore22`)
-    }
     
-    } catch (e) {
-      console.log(e);
-    }
+  }
+
+  async initWebApp() {
+    var sqlite:any
+    try {
+      const platform = Capacitor.getPlatform();
+
+      if (platform === "web") {
+        sqlite = new SQLiteConnection(CapacitorSQLite)
+        customElements.define("jeep-sqlite", JeepSqlite)
+        const jeepSqliteEl = document.createElement("jeep-sqlite")
+        document.body.appendChild(jeepSqliteEl)
+        await customElements.whenDefined("jeep-sqlite")
+        await sqlite.initWebStore()
+      }
+      
+      } catch (e) {
+        console.log(e);
+      }
     
     try {
 
@@ -114,4 +121,5 @@ export class NiceComponent  implements OnInit {
     await this.storage.loadUsers()
     SplashScreen.hide()
   }
+
 }

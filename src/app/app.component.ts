@@ -16,6 +16,14 @@ export class AppComponent implements OnInit{
 
   async ngOnInit() {
     await this.initApp()
+    await this.storage.initializePlugin()
+    await this.storage.loadUsers()
+  }
+
+  async ngAfterViewInit() {
+    await this.initApp()
+    await this.storage.initializePlugin()
+    await this.storage.loadUsers()
   }
 
   constructor(private platform: Platform, private storage: StorageService,) { }
@@ -25,19 +33,13 @@ export class AppComponent implements OnInit{
   try {
     const platform = Capacitor.getPlatform();
 
-    // WEB SPECIFIC FUNCTIONALITY
     if (platform === "web") {
       sqlite = new SQLiteConnection(CapacitorSQLite)
-      // Create the 'jeep-sqlite' Stencil component
       customElements.define("jeep-sqlite", JeepSqlite)
       const jeepSqliteEl = document.createElement("jeep-sqlite")
       document.body.appendChild(jeepSqliteEl)
       await customElements.whenDefined("jeep-sqlite")
-      //console.log(`after customElements.whenDefined`)
-      // console.log(sqlite , '#sqlite')
-      // Initialize the Web store
       await sqlite.initWebStore()
-      //console.log(`after initWebStore22`)
     }
     
     } catch (e) {

@@ -16,7 +16,6 @@ export interface User {
 export class StorageService implements OnInit{
 
   ngOnInit(): void {
-      this.nice.ngOnInit()
   }
 
   private nice: NiceComponent
@@ -45,15 +44,14 @@ export class StorageService implements OnInit{
       );`
 
     await this.db.execute(schema)
-    //await this.sqlite.closeConnection("db_vite", false)
     return true
   }
 
   async loadUsers() {
     
     try {
-      const respSelect = await this.db.query(`SELECT * FROM users`);
-      const userArray = Array.from(respSelect.values);
+      const respSelect = await this.db.query(`SELECT * FROM users`)
+      const userArray = Array.from(respSelect.values)
       this.user = userArray.map(user => ({
         id: user.id,
         name: user.name,

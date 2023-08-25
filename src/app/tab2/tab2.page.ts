@@ -11,6 +11,10 @@ export class Tab2Page implements OnDestroy {
     //console.log("welcome to tabs")
   }
 
+  ionViewDidEnter() {
+    console.log('Page loaded, myFunction triggered.')
+  }
+
   ngOnDestroy(): void {
     //alert("by tabs")
   }
