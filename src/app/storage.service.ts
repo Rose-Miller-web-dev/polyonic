@@ -70,20 +70,26 @@ export class StorageService implements OnInit{
       console.log("Adding user:", name);
       const id = Math.floor(Math.random() * 1000000);
       await this.db.query(`INSERT INTO users (id, name) VALUES (?, ?)`, [id, name]);
-      await this.loadUsers();
       console.log("User added successfully!");
     } catch (error) {
       console.error("Error adding user:", error);
     }
 
-    await this.sqlite.closeConnection("db_vite", false) //PROBLEMATIC LINE
+    await this.loadUsers();
   }
 
   async updateUserById(user: any, name: string) {
-    console.log("the user is ", user, " and new name is" ,name)
-    await this.db.query(`UPDATE users SET name=? WHERE id=?;`, [name, user.id]);
-    console.log("updated")
-    await this.loadUsers()
+   
+    try {
+      console.log("Updating user:", name);
+      const id = Math.floor(Math.random() * 1000000);
+      await this.db.query(`UPDATE users SET name=? WHERE id=?;`, [name, user.id]);
+      console.log("User updated successfully!");
+    } catch (error) {
+      console.error("Error updating user:", error);
+    }
+
+    await this.loadUsers();
   }
 
   async deleteUserById(id: string) {
