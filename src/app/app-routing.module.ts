@@ -15,7 +15,7 @@ const routes: Routes = [
     path: 'nice',
     component: NiceComponent
   },
-
+  
 ]
 
 @NgModule({

@@ -17,7 +17,7 @@ export class Tab1Page  implements OnInit {
   constructor(
     public electronService: ElectronService,
     private events: EventService,
-    private appC: AppComponent
+ 
   ) {
     this.events.subscribe('database:available', (info) => {
       console.log('Database is now available')
