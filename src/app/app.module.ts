@@ -12,12 +12,14 @@ import { AppComponent } from './app.component'
 import { Drivers } from '@ionic/storage'
 import * as cordovaSQLiteDriver from 'localforage-cordovasqlitedriver'
 import { NiceComponent } from './nice/nice.component';
+import { BottomTabComponent } from './bottom-tab/bottom-tab.component'
+
 
 @NgModule({
     declarations: [
         AppComponent,
         NiceComponent,
-       
+        BottomTabComponent
     ],
 
     imports: [
@@ -35,6 +37,7 @@ import { NiceComponent } from './nice/nice.component';
             ]
         }),
         FormsModule,
+    
     ],
 
     providers: [
