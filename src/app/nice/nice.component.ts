@@ -79,7 +79,7 @@ export class NiceComponent  implements OnInit {
 
       if (platform === "web") {
         sqlite = new SQLiteConnection(CapacitorSQLite)
-        customElements.define("jeep-sqlite", JeepSqlite)
+        customElements.get('jeep-sqlite') || customElements.define("jeep-sqlite", JeepSqlite)
         const jeepSqliteEl = document.createElement("jeep-sqlite")
         document.body.appendChild(jeepSqliteEl)
         await customElements.whenDefined("jeep-sqlite")

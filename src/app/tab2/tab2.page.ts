@@ -8,14 +8,10 @@ import { Component, OnDestroy, OnInit } from '@angular/core';
 
 export class Tab2Page implements OnDestroy {
   ngOnInit(): void {
-    //console.log("welcome to tabs")
-  }
-
-  ionViewDidEnter() {
-    console.log('Page loaded, myFunction triggered.')
+    
   }
 
   ngOnDestroy(): void {
-    //alert("by tabs")
+   
   }
 }

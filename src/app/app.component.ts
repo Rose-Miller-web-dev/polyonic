@@ -17,14 +17,16 @@ export class AppComponent implements OnInit{
     await this.initApp()
     await this.storage.initializePlugin()
     await this.storage.loadUsers()
+
   }
 
   async ngAfterViewInit() {
+    
     await this.initApp()
-    await this.storage.initializePlugin()
     await this.storage.loadUsers()
   }
 
+  isWeb: boolean = false
   constructor(private platform: Platform, private storage: StorageService,) { }
 
   async initApp() {
@@ -33,8 +35,9 @@ export class AppComponent implements OnInit{
       const platform = Capacitor.getPlatform();
 
       if (platform === "web") {
+        this.isWeb = true
         sqlite = new SQLiteConnection(CapacitorSQLite)
-        customElements.define("jeep-sqlite", JeepSqlite)
+        customElements.get('jeep-sqlite') || customElements.define("jeep-sqlite", JeepSqlite)
         const jeepSqliteEl = document.createElement("jeep-sqlite")
         document.body.appendChild(jeepSqliteEl)
         await customElements.whenDefined("jeep-sqlite")
