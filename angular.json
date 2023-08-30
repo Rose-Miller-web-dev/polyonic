@@ -28,7 +28,8 @@
                "argsarray",
                "inherits",
                "uuid",
-               "vuvuzela"
+               "vuvuzela",
+               "localforage-cordovasqlitedriver"
             ],
             "assets": [
               {
