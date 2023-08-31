@@ -36,6 +36,11 @@ export class StorageService implements OnInit{
 
     await this.db.open()
 
+    const schema2 = `CREATE TABLE IF NOT EXISTS kv_store (
+    key TEXT PRIMARY KEY NOT NULL,
+    value TEXT NOT NULL
+    );`
+
     const schema = `CREATE TABLE IF NOT EXISTS users (
       id INTEGER PRIMARY KEY NOT NULL,
       name TEXT NOT NULL
@@ -105,4 +110,15 @@ export class StorageService implements OnInit{
   async closeDB() {
     await this.sqlite.closeConnection("db_vite", false)
   }
+
+  async getValue(key: any){
+    const results = await this.db.query(`SELECT value FROM kv_store WHERE key = ?`, [key]);
+    return results.values[0]?.value || null;
+  }
+  
+  // async setValue(key: any, value: any){
+  //   await this.db.execute(`INSERT OR REPLACE INTO kv_store (key, value) VALUES (?, ?)`,
+  //    [key, value])
+  // }
+
 }
