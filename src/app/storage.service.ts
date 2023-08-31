@@ -66,7 +66,7 @@ export class StorageService implements OnInit{
       console.log("Adding user:", name);
       const id = Math.floor(Math.random() * 1000000);
       await this.db.query(`INSERT INTO users (id, name) VALUES (?, ?)`, [id, name]);
-      console.log("User added successfully!");
+      //console.log("User added successfully!");
     } catch (error) {
       console.error("Error adding user:", error);
     }
@@ -80,7 +80,7 @@ export class StorageService implements OnInit{
       console.log("Updating user:", name);
       const id = Math.floor(Math.random() * 1000000);
       await this.db.query(`UPDATE users SET name=? WHERE id=?;`, [name, user.id]);
-      console.log("User updated successfully!");
+      //console.log("User updated successfully!");
     } catch (error) {
       console.error("Error updating user:", error);
     }
@@ -93,7 +93,7 @@ export class StorageService implements OnInit{
     const result = await this.db.query(query)
 
     await this.loadUsers()
-    console.log("deleted successfully")
+    //console.log("deleted successfully")
     return result
   }
 

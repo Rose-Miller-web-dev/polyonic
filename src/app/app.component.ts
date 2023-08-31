@@ -58,7 +58,7 @@ export class AppComponent implements OnInit{
           1,
           false
       );
-      console.log("Database connection successful!")
+      //console.log("Database connection successful!")
     } catch (error) {
         console.error("Error creating database connection:", error)
     }
