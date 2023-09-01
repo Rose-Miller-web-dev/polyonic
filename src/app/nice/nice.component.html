@@ -39,7 +39,7 @@
 
     <ion-item>
       <ion-input
-          label="Name" labelPlacement="stacked" 
+          label="Value" labelPlacement="stacked" 
           placeholder="enter val" [(ngModel)]="newVal">
       </ion-input>
     
@@ -49,16 +49,31 @@
     </ion-item>
 
     <ion-item *ngIf="foundKey">
-    
+
       {{ foundKey }}
     
       </ion-item>
+
+      <ion-item *ngIf="foundKey">
+
+        <p>You wanna change the key?</p>
+
+        <ion-input
+          label="Key" labelPlacement="stacked" 
+          placeholder="enter new key" [(ngModel)]="resetKey">
+        </ion-input>
+
+        <ion-button expand="block" fill="outline" (click)="setKey(resetKey, foundKey)">
+          <ion-icon name="create" slot="icon-only"></ion-icon>
+        </ion-button>  
+      
+        </ion-item>
   </ion-col>
 
   <ion-col size="6">
     <ion-item>
       <ion-input
-          label="Name" labelPlacement="stacked" 
+          label="Key" labelPlacement="stacked" 
           placeholder="enter key" [(ngModel)]="newKey">
       </ion-input>
     

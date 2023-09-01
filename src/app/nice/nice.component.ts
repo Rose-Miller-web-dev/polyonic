@@ -34,6 +34,8 @@ export class NiceComponent  implements OnInit {
   newVal=''
   foundKey: any
   foundVal: any
+  resetKey: any
+  resetVal: any
   users: any
   private currentUser: any
   
@@ -47,7 +49,7 @@ export class NiceComponent  implements OnInit {
   async createUser(name: string) {
 
     if (this.isEdit) {
-      await this.storage.updateUserByKey(this.currentUser, this.newUserName)
+      await this.storage.updateUserByKey(this.currentUser.key, this.newUserName)
       this.isEdit = false
       this.currentUser = null
     } else {
@@ -77,6 +79,14 @@ export class NiceComponent  implements OnInit {
     this.foundVal = await this.storage.getValue(key)
     console.log(this.foundVal, 'val found!')
     this.newKey = ''
+  }
+
+  async setKey(newkey: any, prevkey: any) {
+    this.storage.setKey(newkey, prevkey)
+  }
+
+  async setVal(val: any) {
+    await this.storage.updateUserByKey(this.newKey, this.resetVal)
   }
 
   async deleteUser(user: User) {

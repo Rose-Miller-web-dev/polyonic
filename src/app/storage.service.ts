@@ -75,12 +75,12 @@ export class StorageService implements OnInit{
     await this.loadUsers()
   }
 
-  async updateUserByKey(user: any, name: string) {
+  async updateUserByKey(key: any, name: string) {
    
     try {
 
       const id = Math.floor(Math.random() * 1000000)
-      await this.db.query(`UPDATE kv_Store SET val=? WHERE key=?;`, [name, user.key])
+      await this.db.query(`UPDATE kv_Store SET val=? WHERE key=?;`, [name, key])
       
     } catch (error) {
       console.error("Error updating user:", error)
@@ -114,7 +114,7 @@ export class StorageService implements OnInit{
       console.log("not found")
       return "not found"
     }
-    
+
   }
 
   async getKey(val: any){
@@ -128,8 +128,20 @@ export class StorageService implements OnInit{
     }
   }
 
-  async setValue(key: any, value: any){
-    await this.db.execute(`INSERT OR REPLACE INTO kv_Store (key, val) VALUES (${key}, ${value});`);
+  async setKey(newkey: any, prevkey: any) {
+    
+   try {
+
+    await this.db.query(`UPDATE kv_Store SET key=? WHERE key=?;`, [newkey, prevkey])
+
+   } catch (err) {
+    console.log("couldn't change the key, try another key")
+   }
+
   }
+
+  // async setValue(key: any, value: any){
+  //   await this.db.execute(`UPDATE kv_Store SET val=? WHERE key=?;`, [value, key]);
+  // }
 
 }
