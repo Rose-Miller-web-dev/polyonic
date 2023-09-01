@@ -14,26 +14,26 @@ position: sticky; bottom: 0px;">
 
  <ion-tab-bar slot="bottom">
    
-   <ion-tab-button  href="/">
+   <ion-tab-button  [routerLink]="['/']">
      <ion-icon name="flash"></ion-icon>
      <ion-label type="button">
        Tab One
      </ion-label>
    </ion-tab-button>
 
-   <ion-tab-button routerLink="/tab2">
+   <ion-tab-button [routerLink]="['/tab2']">
      <ion-icon name="apps"></ion-icon>
       <ion-label type="button">
         Tab Two
       </ion-label>
    </ion-tab-button>
 
-   <ion-tab-button href="/tab3">
+   <ion-tab-button [routerLink]="['/tab3']">
      <ion-icon name="send"></ion-icon>
      <ion-label type="button">Tab Three</ion-label>
    </ion-tab-button>
 
-   <ion-tab-button  href="/nice">
+   <ion-tab-button  [routerLink]="['/nice']">
      <ion-icon name="star"></ion-icon>
      <ion-label type="button">
        Nice
