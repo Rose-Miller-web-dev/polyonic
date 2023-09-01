@@ -4,9 +4,8 @@ import { Observable, of } from 'rxjs';
 import { NiceComponent } from './nice/nice.component';
 
 export interface User {
-  id: number
+  key: string
   name: string
-  active: number
 }
 
 @Injectable({
@@ -36,14 +35,9 @@ export class StorageService implements OnInit{
 
     await this.db.open()
 
-    const schema2 = `CREATE TABLE IF NOT EXISTS kv_store (
-    key TEXT PRIMARY KEY NOT NULL,
-    value TEXT NOT NULL
-    );`
-
-    const schema = `CREATE TABLE IF NOT EXISTS users (
-      id INTEGER PRIMARY KEY NOT NULL,
-      name TEXT NOT NULL
+    const schema = `CREATE TABLE IF NOT EXISTS kv_Store (
+      key TEXT PRIMARY KEY NOT NULL,
+      val TEXT NOT NULL
       );`
 
     await this.db.execute(schema)
@@ -51,13 +45,13 @@ export class StorageService implements OnInit{
   }
 
   async loadUsers() {
-    
+
     try {
-      const respSelect = await this.db.query(`SELECT * FROM users`)
+      const respSelect = await this.db.query(`SELECT * FROM kv_Store`)
       const userArray = Array.from(respSelect.values)
       this.user = userArray.map(user => ({
-        id: user.id,
-        name: user.name,
+        key: user.key,
+        name: user.val,
       }));
 
     } catch (error) {
@@ -68,37 +62,37 @@ export class StorageService implements OnInit{
   async addUser(name: string) {
 
     try {
-      console.log("Adding user:", name);
-      const id = Math.floor(Math.random() * 1000000);
-      await this.db.query(`INSERT INTO users (id, name) VALUES (?, ?)`, [id, name]);
-      //console.log("User added successfully!");
+      console.log("Adding user:", name)
+      const id = Math.floor(Math.random() * 1000000)
+
+      await this.db.query(`INSERT INTO kv_Store (key, val) VALUES (?, ?)`, 
+      ['dessert' + String(id) , name])
+      
     } catch (error) {
-      console.error("Error adding user:", error);
+      console.error("Error adding user:", error)
     }
-
-    await this.loadUsers();
-  }
-
-  async updateUserById(user: any, name: string) {
-   
-    try {
-      console.log("Updating user:", name);
-      const id = Math.floor(Math.random() * 1000000);
-      await this.db.query(`UPDATE users SET name=? WHERE id=?;`, [name, user.id]);
-      //console.log("User updated successfully!");
-    } catch (error) {
-      console.error("Error updating user:", error);
-    }
-
-    await this.loadUsers();
-  }
-
-  async deleteUserById(id: string) {
-    const query = `DELETE FROM users WHERE id=${id}`
-    const result = await this.db.query(query)
 
     await this.loadUsers()
-    //console.log("deleted successfully")
+  }
+
+  async updateUserByKey(user: any, name: string) {
+   
+    try {
+
+      const id = Math.floor(Math.random() * 1000000)
+      await this.db.query(`UPDATE kv_Store SET val=? WHERE key=?;`, [name, user.key])
+      
+    } catch (error) {
+      console.error("Error updating user:", error)
+    }
+
+    await this.loadUsers()
+  }
+
+  async deleteUserByKey(key: any) {
+    const result = await this.db.query(`DELETE FROM kv_Store WHERE key= ?`, [key])
+
+    await this.loadUsers()
     return result
   }
 
@@ -112,13 +106,30 @@ export class StorageService implements OnInit{
   }
 
   async getValue(key: any){
-    const results = await this.db.query(`SELECT value FROM kv_store WHERE key = ?`, [key]);
-    return results.values[0]?.value || null;
+    try {
+      const results = await this.db.query(`SELECT val FROM kv_Store WHERE key = ?`, [key])
+      return results.values[0].val || null
+
+    } catch(err) {
+      console.log("not found")
+      return "not found"
+    }
+    
   }
-  
-  // async setValue(key: any, value: any){
-  //   await this.db.execute(`INSERT OR REPLACE INTO kv_store (key, value) VALUES (?, ?)`,
-  //    [key, value])
-  // }
+
+  async getKey(val: any){
+    try {
+      const results = await this.db.query(`SELECT key FROM kv_Store WHERE val = ?`, [val])
+      return results.values[0].key || null
+
+    } catch (err) {
+      console.log("not found")
+      return "not found"
+    }
+  }
+
+  async setValue(key: any, value: any){
+    await this.db.execute(`INSERT OR REPLACE INTO kv_Store (key, val) VALUES (${key}, ${value});`);
+  }
 
 }

@@ -30,6 +30,10 @@ export class NiceComponent  implements OnInit {
   
   public isEdit: boolean = false
   newUserName = ''
+  newKey=''
+  newVal=''
+  foundKey: any
+  foundVal: any
   users: any
   private currentUser: any
   
@@ -43,7 +47,7 @@ export class NiceComponent  implements OnInit {
   async createUser(name: string) {
 
     if (this.isEdit) {
-      await this.storage.updateUserById(this.currentUser, this.newUserName)
+      await this.storage.updateUserByKey(this.currentUser, this.newUserName)
       this.isEdit = false
       this.currentUser = null
     } else {
@@ -63,8 +67,20 @@ export class NiceComponent  implements OnInit {
     this.currentUser = user
   }
 
+  async getKeyByValue(val: any) {
+    this.foundKey =  await this.storage.getKey(val)
+    console.log(this.foundKey, 'key found!')
+    this.newVal = ''
+  }
+
+  async getValueByKey(key: any) {
+    this.foundVal = await this.storage.getValue(key)
+    console.log(this.foundVal, 'val found!')
+    this.newKey = ''
+  }
+
   async deleteUser(user: User) {
-    await this.storage.deleteUserById(user.id.toString())
+    await this.storage.deleteUserByKey(user.key.toString())
     await this.loadProducts()
     await this.storage.closeDB()
     await this.initWebApp()
@@ -100,7 +116,7 @@ export class NiceComponent  implements OnInit {
           1,
           false
       );
-      //console.log("Database connection successful!")
+      
   } catch (error) {
       console.error("Error creating database connection:", error)
   }
