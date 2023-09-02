@@ -20,6 +20,7 @@ export class StorageService implements OnInit{
   private sqlite: SQLiteConnection = new SQLiteConnection(CapacitorSQLite)
   private db!: SQLiteDBConnection
   private item: any
+  public editActive: boolean = false
   
   constructor() { }
 
@@ -71,13 +72,11 @@ export class StorageService implements OnInit{
     }
   }
 
-  async setValue (val: any, key: any, isEdit: boolean) {
+  async setValue (val: any, key: any) {
 
-    if (!isEdit) {
+    if (!this.editActive) {
       try {
         
-        //const id = Math.floor(Math.random() * 1000000)
-  
         await this.db.query(`INSERT INTO kv_Store (key, val) VALUES (?, ?)`, 
         [key , val])
         
@@ -86,13 +85,15 @@ export class StorageService implements OnInit{
       }
   
     } else {
+
       try {
 
         await this.db.query(`UPDATE kv_Store SET val=? WHERE key=?;`, [val, key])
         
       } catch (error) {
-        console.error("Error updating user:", error)
+        console.error("Error updating item:", error)
       }
+
     }
 
   }

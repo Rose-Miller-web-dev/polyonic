@@ -44,12 +44,13 @@ export class NiceComponent  implements OnInit {
 
     if (this.isEdit) {
       //edit
-      await this.storage.setValue(value, this.currentItem.key, true)
+      await this.storage.setValue(value, this.currentItem.key)
       this.isEdit = false
+      this.storage.editActive = false
       this.currentItem = null
     } else {
       //add
-      await this.storage.setValue(value, this.newKey, false)
+      await this.storage.setValue(value, this.newKey)
     }
 
     this.newValue = ''
@@ -64,6 +65,7 @@ export class NiceComponent  implements OnInit {
     this.newKey = item.key
     this.newValue = item.val
     this.isEdit = true
+    this.storage.editActive = true
     this.currentItem = item
   }
 
