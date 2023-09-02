@@ -1,10 +1,10 @@
-import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
-import { CapacitorSQLite, SQLiteConnection } from '@capacitor-community/sqlite';
-import { Capacitor } from '@capacitor/core';
-import { StorageService, Item } from '../storage.service';
+import { Component, OnInit } from '@angular/core'
+import { Router } from '@angular/router'
+import { CapacitorSQLite, SQLiteConnection } from '@capacitor-community/sqlite'
+import { Capacitor } from '@capacitor/core'
+import { StorageService, Item } from '../storage.service'
 import { JeepSqlite } from "jeep-sqlite/dist/components/jeep-sqlite"
-import { SplashScreen } from '@capacitor/splash-screen';
+import { SplashScreen } from '@capacitor/splash-screen'
 
 @Component({
   selector: 'app-nice',

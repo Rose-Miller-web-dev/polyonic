@@ -19,7 +19,7 @@ export class StorageService implements OnInit{
   private nice: NiceComponent
   private sqlite: SQLiteConnection = new SQLiteConnection(CapacitorSQLite)
   private db!: SQLiteDBConnection
-  private user: any
+  private item: any
   
   constructor() { }
 
@@ -48,16 +48,16 @@ export class StorageService implements OnInit{
     try {
       const respSelect = await this.db.query(`SELECT * FROM kv_Store`)
       const userArray = Array.from(respSelect.values)
-      this.user = userArray.map(user => ({
-        key: user.key,
-        val: user.val,
+      this.item = userArray.map(res => ({
+        key: res.key,
+        val: res.val,
       }));
 
     } catch (error) {
-      console.error("Error loading users:", error);
+      console.error("Error loading items:", error);
     }
 
-    return this.user
+    return this.item
   }
 
   async getVal(key: any){
@@ -76,13 +76,13 @@ export class StorageService implements OnInit{
     if (!isEdit) {
       try {
         
-        const id = Math.floor(Math.random() * 1000000)
+        //const id = Math.floor(Math.random() * 1000000)
   
         await this.db.query(`INSERT INTO kv_Store (key, val) VALUES (?, ?)`, 
         [key , val])
         
       } catch (error) {
-        console.error("Error adding user:", error)
+        console.error("Error adding item:", error)
       }
   
     } else {
@@ -99,9 +99,7 @@ export class StorageService implements OnInit{
 
   async unsetValue(key: any) {
     const result = await this.db.query(`DELETE FROM kv_Store WHERE key= ?`, [key])
-
     await this.getAllKeyVals()
-    return result
   }
 
   async closeDB() {
