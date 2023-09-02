@@ -29,7 +29,8 @@
                "inherits",
                "uuid",
                "vuvuzela",
-               "localforage-cordovasqlitedriver"
+               "localforage-cordovasqlitedriver",
+               "localforage"
             ],
             "assets": [
               {

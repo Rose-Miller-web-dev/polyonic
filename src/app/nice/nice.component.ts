@@ -19,7 +19,6 @@ export class NiceComponent  implements OnInit {
   }
 
   async ngOnDestroy() {
-    window.location.reload()
     await this.loadDb()
   }
 
