@@ -1,11 +1,10 @@
 import { Injectable, OnInit, signal, WritableSignal } from '@angular/core';
 import { CapacitorSQLite, SQLiteConnection, SQLiteDBConnection } from '@capacitor-community/sqlite';
-import { Observable, of } from 'rxjs';
 import { NiceComponent } from './nice/nice.component';
 
-export interface User {
+export interface Item {
   key: string
-  name: string
+  val: string
 }
 
 @Injectable({
@@ -44,7 +43,7 @@ export class StorageService implements OnInit{
     return true
   }
 
-  async loadUsers() {
+  async getAllKeyVals() {
 
     try {
       const respSelect = await this.db.query(`SELECT * FROM kv_Store`)
@@ -57,70 +56,14 @@ export class StorageService implements OnInit{
     } catch (error) {
       console.error("Error loading users:", error);
     }
+
+    return this.user
   }
 
-  async addUser(name: string) {
-
+  async getVal(key: any){
     try {
-      console.log("Adding user:", name)
-      const id = Math.floor(Math.random() * 1000000)
-
-      await this.db.query(`INSERT INTO kv_Store (key, val) VALUES (?, ?)`, 
-      ['dessert' + String(id) , name])
-      
-    } catch (error) {
-      console.error("Error adding user:", error)
-    }
-
-    await this.loadUsers()
-  }
-
-  async updateUserByKey(key: any, name: string) {
-   
-    try {
-
-      const id = Math.floor(Math.random() * 1000000)
-      await this.db.query(`UPDATE kv_Store SET val=? WHERE key=?;`, [name, key])
-      
-    } catch (error) {
-      console.error("Error updating user:", error)
-    }
-
-    await this.loadUsers()
-  }
-
-  async deleteUserByKey(key: any) {
-    const result = await this.db.query(`DELETE FROM kv_Store WHERE key= ?`, [key])
-
-    await this.loadUsers()
-    return result
-  }
-
-  async getUsers() {
-    await this.loadUsers()
-    return await this.user
-  }
-
-  async closeDB() {
-    await this.sqlite.closeConnection("db_vite", false)
-  }
-
-  async getValue(key: any){
-    try {
-      const results = await this.db.query(`SELECT val FROM kv_Store WHERE key = ?`, [key])
+      const results = await this.db.query(`SELECT * FROM kv_Store WHERE key = ?`, [key])
       return results.values[0].val || null
-
-    } catch(err) {
-      console.log("not found")
-      return "not found"
-    }
-
-  }
-
-  async getKey(val: any){
-    try {
-      const results = await this.db.query(`SELECT key FROM kv_Store WHERE val = ?`, [val])
-      return results.values[0].key || null
 
     } catch (err) {
       console.log("not found")
@@ -128,20 +71,41 @@ export class StorageService implements OnInit{
     }
   }
 
-  async setKey(newkey: any, prevkey: any) {
-    
-   try {
+  async setValue (val: any, key: any, isEdit: boolean) {
 
-    await this.db.query(`UPDATE kv_Store SET key=? WHERE key=?;`, [newkey, prevkey])
+    if (!isEdit) {
+      try {
+        
+        const id = Math.floor(Math.random() * 1000000)
+  
+        await this.db.query(`INSERT INTO kv_Store (key, val) VALUES (?, ?)`, 
+        [key , val])
+        
+      } catch (error) {
+        console.error("Error adding user:", error)
+      }
+  
+    } else {
+      try {
 
-   } catch (err) {
-    console.log("couldn't change the key, try another key")
-   }
+        await this.db.query(`UPDATE kv_Store SET val=? WHERE key=?;`, [val, key])
+        
+      } catch (error) {
+        console.error("Error updating user:", error)
+      }
+    }
 
   }
 
-  // async setValue(key: any, value: any){
-  //   await this.db.execute(`UPDATE kv_Store SET val=? WHERE key=?;`, [value, key]);
-  // }
+  async unsetValue(key: any) {
+    const result = await this.db.query(`DELETE FROM kv_Store WHERE key= ?`, [key])
+
+    await this.getAllKeyVals()
+    return result
+  }
+
+  async closeDB() {
+    await this.sqlite.closeConnection("db_vite", false)
+  }
 
 }

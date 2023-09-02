@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { CapacitorSQLite, SQLiteConnection } from '@capacitor-community/sqlite';
 import { Capacitor } from '@capacitor/core';
-import { StorageService, User } from '../storage.service';
+import { StorageService, Item } from '../storage.service';
 import { JeepSqlite } from "jeep-sqlite/dist/components/jeep-sqlite"
 import { SplashScreen } from '@capacitor/splash-screen';
 
@@ -29,68 +29,47 @@ export class NiceComponent  implements OnInit {
   }
   
   public isEdit: boolean = false
-  newUserName = ''
+  newValue = ''
   newKey=''
-  newVal=''
-  foundKey: any
-  foundVal: any
-  resetKey: any
-  resetVal: any
   users: any
-  private currentUser: any
+  private currentItem: any
   
   constructor(private storage: StorageService, private router: Router,) { }
 
   async loadProducts() {
-    await this.storage.loadUsers()
-    this.users = await this.storage.getUsers()
+    this.users = await this.storage.getAllKeyVals()
   }
 
-  async createUser(name: string) {
+  async careateItem(value: string) {
 
     if (this.isEdit) {
-      await this.storage.updateUserByKey(this.currentUser.key, this.newUserName)
+      //edit
+      await this.storage.setValue(value, this.currentItem.key, true)
       this.isEdit = false
-      this.currentUser = null
+      this.currentItem = null
     } else {
-      await this.storage.addUser(name.toString())
+      //add
+      await this.storage.setValue(value, this.newKey, false)
     }
 
-    this.newUserName = ''
+    this.newValue = ''
+    this.newKey = ''
     await this.loadProducts()
     await this.storage.closeDB()
     this.router.navigate(['/nice'])
     await this.initWebApp()
   }
 
-  async updateUser(user: User) {
-    this.newUserName = user.name
+  async updateItem(item: Item) {
+    this.newValue = item.val
+    this.newKey = item.key
+    console.log(item, '#item')
     this.isEdit = true
-    this.currentUser = user
+    this.currentItem = item
   }
 
-  async getKeyByValue(val: any) {
-    this.foundKey =  await this.storage.getKey(val)
-    console.log(this.foundKey, 'key found!')
-    this.newVal = ''
-  }
-
-  async getValueByKey(key: any) {
-    this.foundVal = await this.storage.getValue(key)
-    console.log(this.foundVal, 'val found!')
-    this.newKey = ''
-  }
-
-  async setKey(newkey: any, prevkey: any) {
-    this.storage.setKey(newkey, prevkey)
-  }
-
-  async setVal(val: any) {
-    await this.storage.updateUserByKey(this.newKey, this.resetVal)
-  }
-
-  async deleteUser(user: User) {
-    await this.storage.deleteUserByKey(user.key.toString())
+  async deleteItem(item: Item) {
+    await this.storage.unsetValue(item.key.toString())
     await this.loadProducts()
     await this.storage.closeDB()
     await this.initWebApp()
@@ -132,14 +111,14 @@ export class NiceComponent  implements OnInit {
   }
     
     await this.storage.initializePlugin()
-    await this.storage.loadUsers()
+    await this.storage.getAllKeyVals()
     SplashScreen.hide()
   }
 
   async loadDb() {
     await this.initWebApp()
     await this.storage.initializePlugin()
-    await this.storage.loadUsers()
+    await this.storage.getAllKeyVals()
     await this.loadProducts()
   }
 

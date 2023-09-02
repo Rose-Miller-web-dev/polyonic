@@ -16,14 +16,14 @@ export class AppComponent implements OnInit{
   async ngOnInit() {
     await this.initApp()
     await this.storage.initializePlugin()
-    await this.storage.loadUsers()
+    await this.storage.getAllKeyVals()
 
   }
 
   async ngAfterViewInit() {
     
     await this.initApp()
-    await this.storage.loadUsers()
+    await this.storage.getAllKeyVals()
   }
 
   isWeb: boolean = false
@@ -64,7 +64,7 @@ export class AppComponent implements OnInit{
     }
     
     await this.storage.initializePlugin()
-    await this.storage.loadUsers()
+    await this.storage.getAllKeyVals()
     SplashScreen.hide()
   }
 
