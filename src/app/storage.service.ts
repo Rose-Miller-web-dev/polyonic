@@ -50,7 +50,7 @@ export class StorageService implements OnInit{
       const userArray = Array.from(respSelect.values)
       this.user = userArray.map(user => ({
         key: user.key,
-        name: user.val,
+        val: user.val,
       }));
 
     } catch (error) {

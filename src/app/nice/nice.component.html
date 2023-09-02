@@ -29,17 +29,21 @@
   </ion-col>
 </ion-row>
 
-<ion-item *ngFor="let user of users">
+<ion-item *ngFor="let item of items">
 
   <ion-label>
-    {{ user.name }}
+    {{ item.val }}
   </ion-label>
 
-  <ion-button (click)="deleteItem(user)" color="danger">
+  <ion-label>
+    {{ item.key }}
+  </ion-label>
+
+  <ion-button (click)="deleteItem(item)" color="danger">
     <ion-icon name="trash" slot="icon-only"></ion-icon>
   </ion-button>
 
-  <ion-button (click)="updateItem(user)" color="warning">
+  <ion-button (click)="updateItem(item)" color="warning">
     <ion-icon name="create" slot="icon-only"></ion-icon>
   </ion-button>
 </ion-item> 

@@ -31,13 +31,13 @@ export class NiceComponent  implements OnInit {
   public isEdit: boolean = false
   newValue = ''
   newKey=''
-  users: any
+  items: any
   private currentItem: any
   
   constructor(private storage: StorageService, private router: Router,) { }
 
   async loadProducts() {
-    this.users = await this.storage.getAllKeyVals()
+    this.items = await this.storage.getAllKeyVals()
   }
 
   async careateItem(value: string) {
@@ -61,9 +61,8 @@ export class NiceComponent  implements OnInit {
   }
 
   async updateItem(item: Item) {
-    this.newValue = item.val
     this.newKey = item.key
-    console.log(item, '#item')
+    this.newValue = item.val
     this.isEdit = true
     this.currentItem = item
   }
