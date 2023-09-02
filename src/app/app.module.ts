@@ -10,6 +10,7 @@ import { AppComponent } from './app.component'
 import { Drivers } from '@ionic/storage'
 import * as cordovaSQLiteDriver from 'localforage-cordovasqlitedriver'
 import { NiceComponent } from './nice/nice.component';
+import { enterAnimation } from './animations/nav-animation'
 
 @NgModule({
     declarations: [
@@ -20,7 +21,9 @@ import { NiceComponent } from './nice/nice.component';
 
     imports: [
         BrowserModule,
-        IonicModule.forRoot(), 
+        IonicModule.forRoot({
+            navAnimation: enterAnimation
+        }), 
         AppRoutingModule,
         IonicStorageModule.forRoot({
             name: "polyonicDB",
