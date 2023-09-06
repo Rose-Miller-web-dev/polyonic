@@ -1,6 +1,5 @@
 import { Injectable, OnInit, signal, WritableSignal } from '@angular/core';
 import { CapacitorSQLite, SQLiteConnection, SQLiteDBConnection } from '@capacitor-community/sqlite';
-import { NiceComponent } from './nice/nice.component';
 
 export interface Item {
   key: string
@@ -16,7 +15,6 @@ export class StorageService implements OnInit{
   ngOnInit(): void {
   }
 
-  private nice: NiceComponent
   private sqlite: SQLiteConnection = new SQLiteConnection(CapacitorSQLite)
   private db!: SQLiteDBConnection
   private item: any

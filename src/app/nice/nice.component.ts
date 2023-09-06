@@ -37,6 +37,7 @@ export class NiceComponent  implements OnInit {
 
   async loadProducts() {
     this.items = await this.storage.getAllKeyVals()
+    this.items.reverse()
   }
 
   async careateItem(value: string) {
